@@ -28,7 +28,7 @@ fi
 declare -A IPTOMAC
 
 
-echo \# filename clientmac clientip client port  servermac serverip serverport
+echo \# filename clientmac clientip clientport  servermac serverip serverport
 
 
 for FILE in $*; do
