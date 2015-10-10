@@ -39,7 +39,7 @@ for MAC in `tshark -Tfields -e eth.src -e eth.dst -r $FILE 2>/dev/null |
 done
 
 
-# Use bittwiste to edit the file until all MACs have been upated
+# Use bittwiste to edit the file until all MACs have been updated
 for ORIGMAC in "${!MACMAP[@]}"; do
 	NEWMAC="${MACMAP[$ORIGMAC]}"
 	echo "-- Changing $ORIGMAC to $NEWMAC --"
