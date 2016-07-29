@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ########################
 # randomizeIPs.sh     #
@@ -10,6 +10,7 @@
 # Replaces each unique IP in a pcap file with a randomly selected one
 # It doesn't create a new file, so you might want to save your originals
 #
+# ASSUMPTION -- Subnet is a /24 and only the last address is manipulated
 
 
 FILE=$1
@@ -34,7 +35,7 @@ echo "-- Processing $FILE --"
 # Use tshark to strip out all of the IP addresses, parse and uniq them, shove them into associative array -- We skip multicast because it would break lots of things
 for IP in `tshark -Tfields -e ip.src -e ip.dst -r $FILE 2>/dev/null | 
             sed -e 's/\t/\n/' | 
-	    grep -ve '^224.*' |
+    	    grep -ve '^224.*' |
             sort | uniq`; do
 		IPMAP[$IP]=`randomip`
 done
