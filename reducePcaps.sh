@@ -15,7 +15,7 @@
 
 set -e
 shopt -s expand_aliases
-(sed -r 2>/dev/null) || alias sed=gsed  # MACCCCCCCCCCCCCCCCCCCCCCC
+echo | sed -re "" 2>/dev/null || alias sed=gsed  # MACCCCCCCCCCCCCCCCCCCCCCC
 
 reduce() {
 	PCAP=$1
